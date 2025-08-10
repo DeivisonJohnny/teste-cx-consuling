@@ -12,8 +12,6 @@ export interface Report {
   confidence: number;
 }
 
-console.log(process.env.NEXT_PUBLIC_LOVABLE_API_BASE_URL);
-
 export async function processUrl(url: string): Promise<Report> {
   if (!url || !url.startsWith("http")) {
     throw new Error("Invalid URL. Please enter a valid product page URL.");
