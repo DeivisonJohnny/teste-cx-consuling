@@ -2,10 +2,11 @@
 "use client";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import type { Report } from "@/lib/api";
+import Link from "next/link";
 
 interface RecentReportsListProps {
   reports: Report[];
-  onSelectReport?: (report: Report) => void; // Optional prop for main page to display selected report
+  onSelectReport?: (report: Report) => void; // Opcional, para seleção na página principal
   title?: string;
 }
 
@@ -23,7 +24,7 @@ export function RecentReportsList({
   }
 
   return (
-    <Card className="w-full max-w-3xl shadow-md">
+    <Card className="w-full max-w-3xl shadow-md ">
       <CardHeader>
         <CardTitle className="text-xl font-bold">{title}</CardTitle>
       </CardHeader>
@@ -43,23 +44,18 @@ export function RecentReportsList({
                     {report.url}
                   </p>
                   <p className="text-sm text-muted-foreground">
-                    {report.timestamp}
+                    {new Date(report.createdAt).toLocaleString()}
                   </p>
                 </button>
               ) : (
-                // For the dedicated reports page, you might link to a detailed view
-                // For this demo, we'll just display the list.
-                // If you had a dynamic route like /reports/[id], you'd use:
-                // <Link href={`/reports/${report.id}`} className="block">
-                <div className="block">
+                <Link href={`/reports/details/${report.id}`} className="block">
                   <p className="font-medium text-primary truncate">
                     {report.url}
                   </p>
                   <p className="text-sm text-muted-foreground">
-                    {report.timestamp}
+                    {new Date(report.createdAt).toLocaleString()}
                   </p>
-                </div>
-                // </Link>
+                </Link>
               )}
             </li>
           ))}
