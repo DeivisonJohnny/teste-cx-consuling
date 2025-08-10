@@ -3,7 +3,7 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import type { Report } from "@/lib/api";
 import Link from "next/link";
-
+import { useRouter } from "next/router";
 interface RecentReportsListProps {
   reports: Report[];
   onSelectReport?: (report: Report) => void; // Opcional, para seleção na página principal
@@ -15,6 +15,8 @@ export function RecentReportsList({
   onSelectReport,
   title = "Recent Reports",
 }: RecentReportsListProps) {
+  const router = useRouter();
+
   if (!reports || reports.length === 0) {
     return (
       <div className="text-center text-muted-foreground p-4">
@@ -37,7 +39,7 @@ export function RecentReportsList({
             >
               {onSelectReport ? (
                 <button
-                  onClick={() => onSelectReport(report)}
+                  onClick={() => router.push(`/reports/details/${report.id}`)}
                   className="w-full text-left"
                 >
                   <p className="font-medium text-primary truncate">
