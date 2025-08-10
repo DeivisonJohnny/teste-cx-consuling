@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { getRecentReports, type Report } from "@/lib/api";
+import { getRecentReports, type Report } from "@/services/api";
 import { RecentReportsList } from "@/components/recent-reports-list";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";

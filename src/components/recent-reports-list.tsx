@@ -1,7 +1,7 @@
 // components/recent-reports-list.tsx
 "use client";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import type { Report } from "@/lib/api";
+import type { Report } from "@/services/api";
 import Link from "next/link";
 import { useRouter } from "next/router";
 interface RecentReportsListProps {

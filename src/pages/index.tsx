@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { UrlInputForm } from "@/components/url-input-form";
 import { ReportDisplay } from "@/components/report-display";
 import { RecentReportsList } from "@/components/recent-reports-list";
-import { processUrl, getRecentReports, type Report } from "@/lib/api";
+import { processUrl, getRecentReports, type Report } from "@/services/api";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react"; // Importado Loader2 para o spinner
