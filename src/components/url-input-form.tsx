@@ -35,7 +35,7 @@ export function UrlInputForm({
           value={url}
           onChange={(e) => setUrl(e.target.value)}
           required
-          className="flex-1"
+          className="flex-1 text-black "
           aria-label="Product page URL input"
         />
         <Button type="submit" disabled={isLoading} className="w-full sm:w-auto">
